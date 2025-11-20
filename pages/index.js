@@ -20,7 +20,7 @@ export default function Home() {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
 
-      const contractAddress = "YOUR_CONTRACT_ADDRESS";
+      const contractAddress = "0x8FB8320783217d8caDdcDb0375Dc33B03B5279C1";
       const abi = ["function generateImage(uint256) payable"];
 
       const contract = new ethers.Contract(contractAddress, abi, signer);
