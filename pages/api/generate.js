@@ -1,7 +1,7 @@
 import formidable from "formidable";
 import fs from "fs";
 import { OpenAI } from "openai";
-import prompts from "../../../prompts";
+import prompts from "../../prompts";  //
 
 export const config = {
   api: {
@@ -19,7 +19,9 @@ export default async function handler(req, res) {
       const filePath = files.image.filepath;
       const fileData = fs.readFileSync(filePath, { encoding: "base64" });
 
-      const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+      const openai = new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY,
+      });
 
       const response = await openai.images.generate({
         model: "gpt-image-1",
